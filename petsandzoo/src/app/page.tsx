@@ -35,8 +35,8 @@ export default function Home() {
         <p className="mt-6 text-lg max-w-prose text-muted-foreground">Welcome to Pets & ZOO.<br></br> Every asset on our platform is verified by our team to ensure our highest quality standards.</p>
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <Link href='/products' className={buttonVariants()}>Browse Trending</Link>
-          {/* <button Variant ="ghost">Our Quality &rarr;</button> */}
-          <button className={cn("button-ghost")}>Our Quality &rarr;</button>
+          <Button variant ="ghost">Our Quality &rarr;</Button>
+          
         </div>
       </div>
     </MaxWidthWrapper>
