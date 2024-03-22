@@ -2,6 +2,7 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb"
 import { buildConfig } from "payload/config"
 import { webpackBundler } from "@payloadcms/bundler-webpack"
 import { slateEditor } from "@payloadcms/richtext-slate"
+
 export default buildConfig({
     serverURL : process.env.NEXT_PUBLIC_SERVER_URL || '' ,
     collections:[],
@@ -17,6 +18,7 @@ export default buildConfig({
     },
     editor: slateEditor({}),
     db:mongooseAdapter({
+
         url: process.env.MONGO_URL!,
     }),
 })
