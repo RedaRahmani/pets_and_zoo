@@ -35,7 +35,7 @@ const Cart = ()=>{
                 <div className="space-y-1.5 text-sm">
                     <div className="flex">
                         <span className="flex-1">Shipping</span>
-                        <span >Free</span>
+                        <span >Free </span>
                     </div>
                     <div className="flex">
                         <span className="flex-1">
@@ -73,7 +73,7 @@ const Cart = ()=>{
                     alt="empty shopping cart hippo"
                 />
             </div>
-            <div className="text-xl font-semibold">Your cart is empty</div>
+            <div className="text-xl font-semibold">Your Cart is empty</div>
             <SheetTrigger asChild>
                 <Link href='/products' className={buttonVariants({
                     variant:"link",
