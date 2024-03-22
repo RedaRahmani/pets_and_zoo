@@ -1,9 +1,9 @@
-import { Link } from "lucide-react"
 import MaxWidthWrapper from "./MaxWidthWrapper"
-import { Icons } from './Icons'
 import NavItems from "./NavItems"
 import { buttonVariants } from "./ui/button"
-
+import Link from "next/link"
+import { Icons } from "./Icons"
+import Cart from "./Cart"
 const Navbar = () => {
     const user = null
     return (
@@ -22,18 +22,18 @@ const Navbar = () => {
                                 <NavItems />
                             </div>
 
-                            <div className="ml-auto flex items-center">
-                                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 ">
-                                    {user ? null : (
-                                        <Link href="/sign-in" className={buttonVariants({variant:"ghost"})}>Signin</Link>
-                                    )}
-                                    {user ? null : (
-                                        <span 
-                                            className="h-6 w-px bg-gray-200" 
-                                            aria-hidden='true'
-                                            />
-                                        )}
-
+                            <div className='ml-auto flex items-center'>
+                                <div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6'>
+                                {user ? null : (
+                                    <Link
+                                    href='/sign-in'
+                                    className={buttonVariants({
+                                        variant: 'ghost',
+                                    })}>
+                                    <p>Sign in</p>
+                                    </Link>
+                                )}
+                                    
 
                                     {user ? (
                                         <p></p> 
@@ -46,6 +46,7 @@ const Navbar = () => {
                                         Create account
                                     </Link>
                                     )}
+
                                     {user ? (
                                         <span 
                                         className="h-6 w-px bg-gray-200" 
@@ -63,7 +64,7 @@ const Navbar = () => {
                                     )}
 
                                     <div className="ml-4 flow-root lg:ml-6">
-                                        
+                                        <Cart />
                                     </div>
                                 </div>
                             </div>
