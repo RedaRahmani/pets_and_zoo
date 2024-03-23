@@ -4,13 +4,13 @@ import payload from "payload"
 import type { InitOptions } from "payload/config"
 import { Payload } from "payload"
 dotenv.config({
-    path: path.resolve(__dirname, "../env")
+    path: path.resolve(__dirname, "../.env")
 })
 
-let cashed = (global as any).payload
+let cached = (global as any).payload
 
-if(!cashed){
-    cashed = (global as any).payload = {
+if(!cached){
+    cached = (global as any).payload = {
         client: null,
         promise:null,
     }
@@ -21,17 +21,17 @@ interface Args {
 }
 export const getPayloadClient = async ({
     initOptions,
-}: Args  = {})=>{
+}: Args  = {}) =>{
     if(!process.env.PAYLOAD_SECRET){
         throw new Error("PAYLOAD_SECRET is missing")
     }
 
-    if(cashed.client){
-        return cashed.client
+    if(cached.client){
+        return cached.client
     }
 
-    if(cashed.promise){
-        cashed.promise = payload.init({
+    if(!cached.promise){
+        cached.promise = payload.init({
             secret: process.env.PAYLOAD_SECRET,
             local: initOptions?.express ? false : true ,
             ...(initOptions || {}),
@@ -40,10 +40,11 @@ export const getPayloadClient = async ({
     }
 
     try {
-        cashed.client = await cashed.promise
-    } catch (e : unknown) {
-        cashed.promise = null
+    cached.client = await cached.promise
+    } catch (e: unknown) {
+        cached.promise = null
         throw e
     }
-
+    
+    return cached.client
 }
