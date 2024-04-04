@@ -2,7 +2,6 @@
 
 Built with the Next.js 14 App Router, tRPC, TypeScript, Payload & Tailwind
 
-![Project Image](https://github.com/RedaRahmani/pets_and_zoo/petsandzoo/blob/master/public/thumbnail.jpg)
 
 ## Features
 
